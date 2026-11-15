@@ -235,9 +235,6 @@ export function SiteHeader() {
         isOpen={mobileMenuOpen}
         onClose={handleCloseMobileMenu}
       />
-
-      {/* Spacer for Subpages so content starts below fixed navbar (Zero spacer on Homepage) */}
-      {!isHomepage && <div className="h-20 shrink-0" aria-hidden="true" />}
     </>
   );
 }
