@@ -2,7 +2,7 @@
 
 A premium, responsive, SEO-ready portfolio and lead-generation website for an individual contractor in India offering **Electrical**, **Carpentry**, **Painting**, and **False Ceiling** services.
 
-Built strictly according to [AGENTS.md](AGENTS.md) and [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md).
+
 
 ---
 
