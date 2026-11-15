@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageSquare, Send, AlertCircle, Phone, Sparkles } from "lucide-react";
+import { MessageSquare, Send, AlertCircle, Phone, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { contactConfig } from "@/data/siteConfig";
@@ -32,8 +32,10 @@ export function EnquiryForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState<
-    "idle" | "pending_provider"
+    "idle" | "success" | "error"
   >("idle");
+  const [serverError, setServerError] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState("");
 
   const servicesList = [
     "All Four Trades (Complete Fit-Out)",
@@ -99,21 +101,95 @@ export function EnquiryForm() {
     window.open(waUrl, "_blank", "noopener,noreferrer");
   };
 
-  // Direct Form Submit: Discloses pending backend provider transparently as required
-  const handleDirectSubmit = (e: React.FormEvent) => {
+  // Direct Form Submit: Sends to /api/contact via Resend
+  const handleDirectSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    setServerError(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          honeypot,
+        }),
+      });
+
+      const json = await res.json();
+
+      if (!res.ok || !json.success) {
+        throw new Error(
+          json.message || "Failed to submit enquiry. Please connect directly via WhatsApp."
+        );
+      }
+
+      setSubmissionStatus("success");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Network error. Please use WhatsApp.";
+      setServerError(msg);
+      setSubmissionStatus("error");
+    } finally {
       setIsSubmitting(false);
-      setSubmissionStatus("pending_provider");
-    }, 600);
+    }
   };
 
   const transferWhatsAppUrl = buildWhatsAppUrl({
     customMessage: generateFormattedMessage(),
   });
+
+  if (submissionStatus === "success") {
+    return (
+      <div className="rounded-2xl bg-white border border-[#21865B]/30 p-8 sm:p-10 shadow-sm text-center animate-in fade-in">
+        <div className="w-16 h-16 rounded-full bg-[#21865B]/10 text-[#21865B] flex items-center justify-center mx-auto mb-4">
+          <CheckCircle2 className="w-8 h-8" />
+        </div>
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#21865B]">
+          Enquiry Delivered
+        </span>
+        <h3 className="text-2xl font-bold text-[#172B40] tracking-tight mt-1">
+          Thank you, {formData.name || "Client"}!
+        </h3>
+        <p className="text-sm text-[#687381] mt-2 max-w-md mx-auto leading-relaxed">
+          Your project requirements for <strong className="text-[#172B40]">{formData.service}</strong> have been securely dispatched directly to our master contractor&apos;s desk. We will review your scope and call you shortly at <strong className="text-[#172B40]">{formData.phone}</strong>.
+        </p>
+
+        <div className="mt-8 pt-6 border-t border-[#E5E0D7] flex flex-col sm:flex-row justify-center items-center gap-3">
+          <Button
+            type="button"
+            variant="whatsapp"
+            size="md"
+            href={transferWhatsAppUrl}
+            isExternal
+            leftIcon={<MessageSquare className="w-4 h-4" />}
+          >
+            Also Send Photos on WhatsApp
+          </Button>
+          <Button
+            type="button"
+            variant="outline"
+            size="md"
+            onClick={() => {
+              setFormData({
+                name: "",
+                phone: "",
+                service: "All Four Trades (Complete Fit-Out)",
+                location: "",
+                description: "",
+              });
+              setSubmissionStatus("idle");
+              setServerError(null);
+            }}
+          >
+            Submit Another Request
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="rounded-2xl bg-white border border-[#E5E0D7] p-6 sm:p-8 lg:p-10 shadow-sm">
@@ -257,6 +333,20 @@ export function EnquiryForm() {
           )}
         </div>
 
+        {/* Anti-spam Honeypot field (hidden from real users) */}
+        <div className="hidden" aria-hidden="true">
+          <label htmlFor="company_website_url">Leave this field blank</label>
+          <input
+            id="company_website_url"
+            name="company_website_url"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+          />
+        </div>
+
         {/* Action Buttons */}
         <div className="pt-2 flex flex-col sm:flex-row gap-3">
           {/* Primary instant delivery path via WhatsApp */}
@@ -284,32 +374,34 @@ export function EnquiryForm() {
           </Button>
         </div>
 
-        {/* Content Integrity Disclosure Notice */}
-        {submissionStatus === "pending_provider" && (
-          <div className="mt-4 p-4 rounded-xl bg-[#F7F5F0] border border-[#B58A58]/40 space-y-3">
-            <div className="flex items-start gap-2.5 text-xs text-[#172B40]">
-              <Sparkles className="w-4 h-4 text-[#B58A58] shrink-0 mt-0.5" />
+        {/* Error Alert with Immediate WhatsApp Fallback */}
+        {submissionStatus === "error" && (
+          <div className="mt-4 p-4 rounded-xl bg-red-50 border border-red-200 text-red-900 space-y-3 animate-in fade-in">
+            <div className="flex items-start gap-2.5 text-xs">
+              <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
               <div>
-                <p className="font-bold text-sm text-[#172B40]">
-                  Form Captured & Integrity Disclosure
+                <p className="font-bold text-sm text-red-800">
+                  Submission Notice
                 </p>
-                <p className="mt-1 text-xs text-[#687381] leading-relaxed">
-                  As strictly governed by our content integrity standards, automated email dispatch is marked as <strong>pending backend credentials configuration</strong>. Your enquiry has been compiled below.
+                <p className="mt-1 text-xs text-red-700 leading-relaxed">
+                  {serverError || "We were unable to deliver your email at this moment. You can forward your enquiry directly to the contractor on WhatsApp."}
                 </p>
               </div>
             </div>
 
             <div className="pt-2 flex flex-col sm:flex-row gap-2">
               <Button
+                type="button"
                 variant="whatsapp"
                 size="sm"
                 href={transferWhatsAppUrl}
                 isExternal
                 leftIcon={<MessageSquare className="w-4 h-4" />}
               >
-                Forward This Enquiry to WhatsApp
+                Forward Enquiry via WhatsApp
               </Button>
               <Button
+                type="button"
                 variant="outline"
                 size="sm"
                 href={`tel:${contactConfig.phoneRaw}`}
