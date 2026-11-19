@@ -26,6 +26,29 @@ export const projectsData: Project[] = [
       "Scratch-resistant high-durability finish",
       "Custom internal utensil & pantry organizers",
     ],
+    beforeAfterPairs: [
+      {
+        id: "pair-carpentry-1",
+        roomName: "Modular Kitchen Carcass vs Finished Joinery",
+        description:
+          "Raw calibrated marine plywood frame alignment transformed into high-gloss acrylic cabinetry with soft-close tandem drawers.",
+        mediaType: "IMAGE",
+        before: {
+          url: "/images/carpentry/carpentry-work-service.jpeg",
+          mediaType: "IMAGE",
+          caption: "Raw plywood carcass assembly and framing on site",
+          altText: "Raw modular kitchen framing and rough plywood work",
+          label: "Raw Site / Carcass Framing",
+        },
+        after: {
+          url: "/images/carpentry/luxury-kitchen.jpg",
+          mediaType: "IMAGE",
+          caption: "Handover finish with high-gloss cabinetry and precision edge-banding",
+          altText: "Finished luxury modular kitchen cabinetry",
+          label: "Turnkey Handover Finish",
+        },
+      },
+    ],
   },
   {
     id: "proj-carpentry-2",
@@ -77,6 +100,29 @@ export const projectsData: Project[] = [
       "Warm ambient indirect cove light channel",
       "Laser-aligned recessed spotlight cutouts",
       "Seamless paper-taped joint compound finish",
+    ],
+    beforeAfterPairs: [
+      {
+        id: "pair-ceiling-1",
+        roomName: "GI Framing Grid vs Monolithic Cove Finish",
+        description:
+          "Laser-leveled galvanized iron channel framework finished into seamless flush gypsum cove lighting with indirect warm glow.",
+        mediaType: "IMAGE",
+        before: {
+          url: "/images/ceiling/ceiling-3.jpg",
+          mediaType: "IMAGE",
+          caption: "Galvanized iron (GI) channel grid installation & conduit drops",
+          altText: "Raw false ceiling metal framing and electrical conduit drops",
+          label: "Raw Framing & Chasing",
+        },
+        after: {
+          url: "/images/ceiling/ceiling-1.jpg",
+          mediaType: "IMAGE",
+          caption: "Monolithic gypsum ceiling with warm LED cove light trough",
+          altText: "Completed designer false ceiling with indirect cove lighting",
+          label: "Handover Cove Lighting",
+        },
+      },
     ],
   },
   {
@@ -182,6 +228,29 @@ export const projectsData: Project[] = [
       "Branded copper multistrand wiring with proper color-coding",
       "Distribution board with dedicated MCB/RCCB breakers",
       "Modular flush switchboards with surge safety",
+    ],
+    beforeAfterPairs: [
+      {
+        id: "pair-electrical-1",
+        roomName: "Masonry Wall Chasing vs Flush Switchboard",
+        description:
+          "Deep masonry groove cutting and PVC conduit routing transitioned into flush, surge-protected modular switchboards with clean wire dressing.",
+        mediaType: "IMAGE",
+        before: {
+          url: "/images/electrical/house-wiring.png",
+          mediaType: "IMAGE",
+          caption: "Chiseled masonry wall chases with concealed conduit pipes and junction boxes",
+          altText: "Raw concealed electrical wall chasing and conduit layout",
+          label: "Raw Conduit Chasing",
+        },
+        after: {
+          url: "/images/electrical/switchboard-wiring.avif",
+          mediaType: "IMAGE",
+          caption: "Completed switchboard installation with color-coded wiring and flush modular faceplate",
+          altText: "Finished flush modular switchboard wiring",
+          label: "Flush Handover Finish",
+        },
+      },
     ],
   },
   {
