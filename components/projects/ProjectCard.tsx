@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, MapPin, CheckCircle2 } from "lucide-react";
+import { ArrowRight, MapPin, CheckCircle2, Sparkles } from "lucide-react";
 import { Project } from "@/types/project";
 
 interface ProjectCardProps {
@@ -33,6 +33,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#172B40]/90 backdrop-blur-sm text-white text-xs font-medium tracking-wide">
           {categoryLabels[project.category]}
         </div>
+
+        {/* Before & After Pill if available */}
+        {project.beforeAfterPairs && project.beforeAfterPairs.length > 0 && (
+          <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-[#172B40]/90 border border-amber-400/40 backdrop-blur-sm text-amber-300 text-[11px] font-bold tracking-wide flex items-center gap-1 shadow-xs">
+            <Sparkles className="w-3 h-3 text-amber-400" />
+            <span>Before & After</span>
+          </div>
+        )}
 
         {/* Location tag if available */}
         {project.location && (

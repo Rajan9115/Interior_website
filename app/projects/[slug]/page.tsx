@@ -8,6 +8,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MediaGallery } from "@/components/projects/MediaGallery";
 import { VideoCard } from "@/components/projects/VideoCard";
 import { ProjectCard } from "@/components/projects/ProjectCard";
+import { TransformationSection } from "@/components/projects/TransformationSection";
 import {
   fetchPublishedProjects,
   fetchPublishedProjectBySlug,
@@ -213,6 +214,14 @@ export default async function ProjectDetailPage({ params }: Props) {
           </div>
         </Container>
       </section>
+
+      {/* 2.5 Transformation Spotlight (Before & After) */}
+      {project.beforeAfterPairs && project.beforeAfterPairs.length > 0 && (
+        <TransformationSection
+          pairs={project.beforeAfterPairs}
+          projectTitle={project.title}
+        />
+      )}
 
       {/* 3. Related Projects in Same Category */}
       {relatedProjects.length > 0 && (
