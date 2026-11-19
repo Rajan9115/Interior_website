@@ -1,4 +1,4 @@
-import { Project, ServiceCategory } from "@/types/project";
+import { Project, ServiceCategory, BeforeAfterPair } from "@/types/project";
 import { projectsData } from "@/data/projects";
 import { servicesData } from "@/data/services";
 import { ServiceDetail } from "@/types/service";
@@ -58,9 +58,62 @@ export function mapApiProjectToWebsiteProject(item: ApiProjectItem): Project {
   const coverMedia = item.media.find((m) => m.role === "COVER") || item.media[0];
   const coverImage = coverMedia?.mediaAsset?.secureUrl || "/images/projects/project-1.png";
 
-  const images = item.media
-    .filter((m) => m.mediaAsset?.mediaType !== "VIDEO")
+  // Pair up BEFORE and AFTER media assets
+  const beforeItems = (item.media || []).filter((m) => m.role === "BEFORE");
+  const afterItems = (item.media || []).filter((m) => m.role === "AFTER");
+
+  const beforeAfterPairs: BeforeAfterPair[] = [];
+  const pairCount = Math.min(beforeItems.length, afterItems.length);
+
+  for (let i = 0; i < pairCount; i++) {
+    const b = beforeItems[i];
+    const a = afterItems[i];
+    const isVideo = b.mediaAsset?.mediaType === "VIDEO" || a.mediaAsset?.mediaType === "VIDEO";
+
+    const rawRoom =
+      b.mediaAsset?.caption?.replace(/before|raw|site|work/gi, "").trim() ||
+      a.mediaAsset?.caption?.replace(/after|finish|handover|completed/gi, "").trim();
+
+    const roomName = rawRoom && rawRoom.length > 2 ? rawRoom : `Transformation ${i + 1}`;
+
+    beforeAfterPairs.push({
+      id: `pair-${i}-${b.mediaAsset.id}-${a.mediaAsset.id}`,
+      roomName,
+      description: a.mediaAsset?.caption || b.mediaAsset?.caption || undefined,
+      mediaType: isVideo ? "VIDEO" : "IMAGE",
+      before: {
+        url: b.mediaAsset.secureUrl,
+        mediaType: b.mediaAsset?.mediaType === "VIDEO" ? "VIDEO" : "IMAGE",
+        caption: b.mediaAsset?.caption || "Raw Site / Before Fit-out",
+        altText: b.mediaAsset?.altText || `${item.title} - Before Renovation`,
+        label: "Raw Site / Before",
+      },
+      after: {
+        url: a.mediaAsset.secureUrl,
+        mediaType: a.mediaAsset?.mediaType === "VIDEO" ? "VIDEO" : "IMAGE",
+        caption: a.mediaAsset?.caption || "Turnkey Handover Finish",
+        altText: a.mediaAsset?.altText || `${item.title} - After Completion`,
+        label: "Turnkey Handover / After",
+      },
+    });
+  }
+
+  // Filter finished images for general gallery (exclude raw BEFORE photos from general gallery if paired,
+  // so visitors don't mistake raw demolition for finished work in the main gallery)
+  const pairedBeforeUrls = new Set(beforeAfterPairs.map((p) => p.before.url));
+  const finishedImages = (item.media || [])
+    .filter(
+      (m) =>
+        m.mediaAsset?.mediaType !== "VIDEO" &&
+        !pairedBeforeUrls.has(m.mediaAsset?.secureUrl)
+    )
     .map((m) => m.mediaAsset.secureUrl);
+
+  const images = finishedImages.length > 0
+    ? finishedImages
+    : (item.media || [])
+        .filter((m) => m.mediaAsset?.mediaType !== "VIDEO")
+        .map((m) => m.mediaAsset.secureUrl);
 
   const videos = item.media
     .filter((m) => m.mediaAsset?.mediaType === "VIDEO")
@@ -89,6 +142,7 @@ export function mapApiProjectToWebsiteProject(item: ApiProjectItem): Project {
     videos: videos.length > 0 ? videos : undefined,
     featured: item.isFeatured,
     scopeHighlights: item.highlights?.map((h) => h.text) || [],
+    beforeAfterPairs: beforeAfterPairs.length > 0 ? beforeAfterPairs : undefined,
   };
 }
 

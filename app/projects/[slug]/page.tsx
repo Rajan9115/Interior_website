@@ -209,36 +209,6 @@ export default async function ProjectDetailPage({ params }: Props) {
                   </ul>
                 </div>
               )}
-
-              {/* Direct Enquiry Box */}
-              <div className="p-6 rounded-xl bg-[#172B40] text-white space-y-4">
-                <h4 className="text-base font-bold tracking-tight">
-                  Want Similar Finishes for Your Space?
-                </h4>
-                <p className="text-xs text-[#E9E3D9]/80 leading-relaxed">
-                  Contact the contractor directly to discuss scope, material options, and receive a transparent itemized quotation.
-                </p>
-                <div className="space-y-2 pt-1">
-                  <Button
-                    variant="whatsapp"
-                    fullWidth
-                    href={whatsappUrl}
-                    isExternal
-                    leftIcon={<MessageSquare className="w-4 h-4" />}
-                    size="md"
-                  >
-                    Chat on WhatsApp
-                  </Button>
-                  <Button
-                    variant="secondary"
-                    fullWidth
-                    href="/contact"
-                    size="md"
-                  >
-                    Request Free Estimate
-                  </Button>
-                </div>
-              </div>
             </div>
           </div>
         </Container>
@@ -281,7 +251,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             Get Started
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
-            Ready to Begin Your Project?
+            <span className="text-[#B58A58]">Ready to Begin Your Project?</span>
           </h2>
           <p className="mt-4 text-sm sm:text-base text-[#E9E3D9]/80 leading-relaxed">
             Direct contractor consultation • No middleman fees • Itemized bills of material
