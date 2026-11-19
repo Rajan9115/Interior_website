@@ -254,7 +254,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       )}
 
       {/* 4. Pre-Footer Call to Action */}
-      <section className="bg-[#172B40] text-white py-16 sm:py-20">
+      <section className="bg-[#172B40] text-white py-4 sm:py-8">
         <Container className="text-center max-w-3xl">
           <span className="inline-block text-xs uppercase tracking-widest font-semibold text-[#B58A58] mb-2">
             Get Started
