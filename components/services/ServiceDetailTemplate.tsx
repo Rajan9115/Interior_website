@@ -229,13 +229,13 @@ export function ServiceDetailTemplate({
       )}
 
       {/* 6. Trade-Aware Pre-Footer CTA */}
-      <section className="bg-[#172B40] text-white py-16 sm:py-20">
+      <section className="bg-[#172B40] text-white py-4 sm:py-8">
         <Container className="text-center max-w-3xl">
           <span className="inline-block text-xs uppercase tracking-widest font-semibold text-[#B58A58] mb-2">
             Direct Contractor Support
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
-            Need Professional {service.shortTitle} Work Done Right?
+            <span className="text-[#B58A58]"> Need Professional {service.shortTitle} Work Done Right?</span>
           </h2>
           <p className="mt-4 text-sm sm:text-base text-[#E9E3D9]/80 leading-relaxed">
             Message us directly on WhatsApp with your floor plan or site photos for immediate advice and an itemized quotation.
