@@ -30,8 +30,8 @@ export default function ContactPage() {
       <PageHero
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
         kicker="Direct Contractor Access"
-        title="Contact Us & Request an Estimate"
-        description="Connect directly with our master contractor. Send room dimensions, site photos, or design references for an immediate consultation and transparent quotation."
+        title="Let’s Build Something Lasting Together"
+        description="Planning a home renovation, new build, or workspace upgrade? Reach out to Mama Interior for complete interior contracting—from custom carpentry and false ceilings to electrical wiring, painting, and more. Book a site visit or ask for an estimate today."
       />
 
       {/* 2. Form & Contact Details Section */}
@@ -45,37 +45,7 @@ export default function ContactPage() {
 
             {/* Right 5 Columns: Direct Contact Channels & Verification Badges */}
             <div className="lg:col-span-5 space-y-6">
-              {/* WhatsApp Quick Channel Card */}
-              <div className="p-6 rounded-2xl bg-white border border-[#E5E0D7] shadow-xs space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#21865B]/10 text-[#21865B]">
-                    <MessageSquare className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-base font-bold text-[#172B40]">
-                      WhatsApp Direct Chat
-                    </h3>
-                    <p className="text-xs text-[#687381]">
-                      Fastest response for photos & site queries
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-xs text-[#687381] leading-relaxed">
-                  Send your room photos, rough measurements, or drawings directly. We reply with initial feasibility advice and quotation ranges.
-                </p>
-
-                <div className="pt-2">
-                  <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-lg bg-[#21865B] hover:bg-[#1B6F4B] text-white text-xs font-semibold shadow-xs transition-colors"
-                  >
-                    Launch WhatsApp Chat Now &rarr;
-                  </a>
-                </div>
-              </div>
+             
 
               {/* Direct Telephone Channel Card */}
               <div className="p-6 rounded-2xl bg-white border border-[#E5E0D7] shadow-xs space-y-3">
