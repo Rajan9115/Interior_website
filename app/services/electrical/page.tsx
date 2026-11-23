@@ -6,9 +6,9 @@ import { servicesData } from "@/data/services";
 import { projectsData } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Electrical Installation & Concealed Wiring Services | Shan Contracting",
+  title: "Electrical Installation & Electronic Works | MAMA INTERIORS Hyderabad",
   description:
-    "Expert concealed electrical installations, fire-retardant wiring, distribution boards, safety switches, and architectural lighting in India.",
+    "Expert concealed electrical installations, fire-retardant wiring, distribution boards, safety switches, and architectural lighting in Hyderabad by Ritesh Kumar Soni.",
 };
 
 export default function ElectricalServicePage() {

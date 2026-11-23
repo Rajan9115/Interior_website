@@ -43,12 +43,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!project) {
     return {
-      title: "Project Not Found | Shan Contracting",
+      title: "Project Not Found | MAMA INTERIORS",
     };
   }
 
   return {
-    title: `${project.title} | Shan Contracting Portfolio`,
+    title: `${project.title} | MAMA INTERIORS Portfolio`,
     description: project.summary,
   };
 }

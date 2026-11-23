@@ -6,9 +6,9 @@ import { servicesData } from "@/data/services";
 import { projectsData } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Interior & Exterior Painting & Surface Finishes | Shan Contracting",
+  title: "Interior & Exterior Painting & Polish Finishes | MAMA INTERIORS Hyderabad",
   description:
-    "Professional surface preparation, dual-coat acrylic wall putty, luxury interior emulsions, texture coatings, and wood polish in India.",
+    "Professional surface preparation, dual-coat acrylic wall putty, luxury interior emulsions, texture coatings, and wood polish in Hyderabad by Ritesh Kumar Soni.",
 };
 
 export default function PaintingServicePage() {

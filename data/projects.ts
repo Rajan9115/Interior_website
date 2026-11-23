@@ -18,7 +18,7 @@ export const projectsData: Project[] = [
       "/images/carpentry/kitchen-cabinetry.jpg",
     ],
     featured: true,
-    location: "Residential Apartment, India",
+    location: "Borabanda, Hyderabad",
     completedAt: "Recent Handover",
     scopeHighlights: [
       "Calibrated termite-resistant marine plywood",
@@ -67,7 +67,7 @@ export const projectsData: Project[] = [
       "/images/carpentry/carpentry-work-service.jpeg",
     ],
     featured: false,
-    location: "Contemporary Home, India",
+    location: "Allapur, Hyderabad",
     completedAt: "Recent Handover",
     scopeHighlights: [
       "Moisture-proof internal carcass construction",
@@ -93,7 +93,7 @@ export const projectsData: Project[] = [
       "/images/ceiling/ceiling-7.jpg",
     ],
     featured: true,
-    location: "Private Residence, India",
+    location: "Banjara Hills, Hyderabad",
     completedAt: "Recent Handover",
     scopeHighlights: [
       "GI perimeter framework with anti-sag suspensions",
@@ -142,7 +142,7 @@ export const projectsData: Project[] = [
       "/images/ceiling/ceiling-2.jpg",
     ],
     featured: false,
-    location: "Residential Villa, India",
+    location: "Jubilee Hills, Hyderabad",
     completedAt: "Recent Handover",
     scopeHighlights: [
       "Perimeter GI channel grid with zero sagging",
@@ -168,7 +168,7 @@ export const projectsData: Project[] = [
       "/images/painting/painting-4.jpg",
     ],
     featured: true,
-    location: "Contemporary Home, India",
+    location: "Madhapur, Hyderabad",
     completedAt: "Recent Handover",
     scopeHighlights: [
       "Dust-controlled machine sanding for ultra-smooth plaster",
@@ -194,7 +194,7 @@ export const projectsData: Project[] = [
       "/images/painting/painting-1.jpg",
     ],
     featured: false,
-    location: "Apartment Renovation, India",
+    location: "Kondapur, Hyderabad",
     completedAt: "Recent Handover",
     scopeHighlights: [
       "Elastomeric sealant for hairline settlement cracks",
@@ -221,7 +221,7 @@ export const projectsData: Project[] = [
     ],
     videos: ["/videos/hero-bg.mp4"],
     featured: true,
-    location: "Renovation Site, India",
+    location: "Gachibowli, Hyderabad",
     completedAt: "Recent Handover",
     scopeHighlights: [
       "Concealed fire-retardant PVC conduits inside masonry walls",
@@ -270,7 +270,7 @@ export const projectsData: Project[] = [
       "/images/electrical/house-wiring.png",
     ],
     featured: false,
-    location: "Commercial & Residential, India",
+    location: "Hitec City, Hyderabad",
     completedAt: "Recent Handover",
     scopeHighlights: [
       "Neat color-coded cable dressing in distribution panels",

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, MessageSquare, MapPin, Clock, ShieldCheck } from "lucide-react";
+import { Phone, MessageSquare, MapPin, Clock, ShieldCheck, Mail } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import {
   siteConfig,
@@ -119,22 +119,39 @@ export function SiteFooter() {
                 <div>
                   <a
                     href={telUrl}
-                    className="hover:text-[#B58A58] transition-colors block"
+                    className="hover:text-[#B58A58] transition-colors block font-medium"
                   >
                     {contactConfig.phoneDisplay}
                   </a>
-                  {!contactConfig.verifiedStatus.isPhoneVerified && (
-                    <span className="text-[11px] text-[#E9E3D9]/50 italic block">
-                      Number pending confirmation
-                    </span>
+                  {contactConfig.secondaryPhoneDisplay && (
+                    <a
+                      href={buildTelUrl(contactConfig.secondaryPhoneRaw)}
+                      className="hover:text-[#B58A58] transition-colors block text-xs text-[#E9E3D9]/70 mt-0.5"
+                    >
+                      Alt: {contactConfig.secondaryPhoneDisplay}
+                    </a>
                   )}
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
+                <Mail className="w-4 h-4 text-[#B58A58] shrink-0 mt-0.5" />
+                <a
+                  href={`mailto:${contactConfig.email}`}
+                  className="text-xs hover:text-[#B58A58] transition-colors break-all"
+                >
+                  {contactConfig.email}
+                </a>
+              </li>
+              <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#B58A58] shrink-0 mt-0.5" />
-                <span className="text-xs leading-relaxed">
-                  {contactConfig.serviceAreaSummary}
-                </span>
+                <div>
+                  <span className="text-xs leading-relaxed block text-white font-medium">
+                    {contactConfig.addressSummary}
+                  </span>
+                  <span className="text-[11px] text-[#E9E3D9]/60 block mt-0.5">
+                    Coverage: {contactConfig.serviceAreaSummary}
+                  </span>
+                </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-[#B58A58] shrink-0 mt-0.5" />

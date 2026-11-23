@@ -21,9 +21,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Our Work & Craftsmanship Standards | Shan Contracting",
+  title: "About Our Work & Craftsmanship Standards | MAMA INTERIORS Hyderabad",
   description:
-    "Learn about our on-site contracting methodology, direct supervision, authentic project standards, and single-point execution across India.",
+    "Learn about our on-site contracting methodology, direct supervision by Ritesh Kumar Soni, authentic project standards, and turnkey interior execution across Hyderabad.",
 };
 
 export default function AboutPage() {
@@ -130,10 +130,10 @@ export default function AboutPage() {
                 {/* Overlay Text */}
                 <div className="absolute bottom-4 inset-x-4 text-white text-xs z-10">
                   <span className="font-bold text-sm block tracking-wide text-white drop-shadow-sm">
-                    MAMA INTERIOR
+                    MAMA INTERIORS
                   </span>
                   <span className="text-white/90 text-[11px] leading-relaxed block mt-0.5 drop-shadow-sm">
-                    Dedicated master craftsmanship across residential & commercial spaces
+                    Led by Ritesh Kumar Soni • Workshop & Operations in Borabanda, Hyderabad
                   </span>
                 </div>
               </div>
@@ -261,13 +261,17 @@ export default function AboutPage() {
           <div className="p-8 sm:p-10 rounded-2xl bg-white border border-[#E5E0D7] shadow-sm max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
               <span className="text-xs uppercase tracking-widest font-semibold text-[#B58A58]">
-                Coverage & Operating Areas
+                Workshop & Coverage Area
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-[#172B40] tracking-tight">
-                Serving Residential & Commercial Clients
+                Operating Base & Project Locations
               </h3>
-              <p className="text-xs sm:text-sm text-[#687381] flex items-center justify-center md:justify-start gap-1.5 pt-1">
+              <p className="text-xs sm:text-sm text-[#172B40] font-medium flex items-center justify-center md:justify-start gap-1.5 pt-1">
                 <MapPin className="w-4 h-4 text-[#B58A58] shrink-0" />
+                <span>{contactConfig.addressSummary}</span>
+              </p>
+              <p className="text-xs text-[#687381] flex items-center justify-center md:justify-start gap-1.5">
+                <span className="font-semibold text-[#21865B]">Serving:</span>
                 <span>{contactConfig.serviceAreaSummary}</span>
               </p>
             </div>
@@ -277,10 +281,10 @@ export default function AboutPage() {
               size="lg"
               href={whatsappUrl}
               isExternal
-              leftIcon={<MessageSquare className="w-5 h-5" />}
+              leftIcon={<MessageSquare className="w-4 h-4" />}
               className="shrink-0"
             >
-              Verify Location on WhatsApp
+              Discuss Your Project on WhatsApp
             </Button>
           </div>
         </Container>

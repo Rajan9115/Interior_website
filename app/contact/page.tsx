@@ -12,17 +12,25 @@ import {
   Clock,
   ShieldCheck,
   CheckCircle2,
+  Mail,
+  User,
+  ExternalLink,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact & Request an Itemized Estimate | Shan Contracting",
+  title: "Contact & Request an Itemized Estimate | MAMA INTERIORS Hyderabad",
   description:
-    "Get in touch directly with the contractor for electrical wiring, custom modular carpentry, painting finishes, and designer false ceiling works in India.",
+    "Get in touch with Master Contractor Ritesh Kumar Soni for modular kitchens, wardrobes, electronic wiring, false ceilings, and painting & polish in Hyderabad.",
 };
 
 export default function ContactPage() {
   const whatsappUrl = buildWhatsAppUrl();
   const telUrl = buildTelUrl();
+  const secondaryTelUrl = contactConfig.secondaryPhoneRaw
+    ? buildTelUrl(contactConfig.secondaryPhoneRaw)
+    : null;
+  const mapsSearchUrl =
+    "https://www.google.com/maps/search/?api=1&query=Friends+Colony+Allapur+Borabanda+Hyderabad";
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -31,7 +39,7 @@ export default function ContactPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
         kicker="Direct Contractor Access"
         title="Let’s Build Something Lasting Together"
-        description="Planning a home renovation, new build, or workspace upgrade? Reach out to Mama Interior for complete interior contracting—from custom carpentry and false ceilings to electrical wiring, painting, and more. Book a site visit or ask for an estimate today."
+        description="Planning a home renovation, modular kitchen, or new fit-out in Hyderabad? Reach out directly to Master Contractor Ritesh Kumar Soni at MAMA INTERIORS for complete turnkey execution—modular kitchens, wardrobes, electronic works, false ceilings, and painting & polish. Book a site visit or ask for an itemized estimate today."
       />
 
       {/* 2. Form & Contact Details Section */}
@@ -45,7 +53,22 @@ export default function ContactPage() {
 
             {/* Right 5 Columns: Direct Contact Channels & Verification Badges */}
             <div className="lg:col-span-5 space-y-6">
-             
+              {/* Contractor Profile Card */}
+              <div className="p-6 rounded-2xl bg-white border border-[#E5E0D7] shadow-xs space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#B58A58]/10 text-[#B58A58]">
+                    <User className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-[#172B40]">
+                      {contactConfig.proprietorName}
+                    </h3>
+                    <p className="text-xs text-[#687381]">
+                      Master Contractor & Proprietor • MAMA INTERIORS
+                    </p>
+                  </div>
+                </div>
+              </div>
 
               {/* Direct Telephone Channel Card */}
               <div className="p-6 rounded-2xl bg-white border border-[#E5E0D7] shadow-xs space-y-3">
@@ -63,25 +86,80 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div>
-                  <a
-                    href={telUrl}
-                    className="text-base font-bold text-[#172B40] hover:text-[#B58A58] transition-colors block"
-                  >
-                    {contactConfig.phoneDisplay}
-                  </a>
-                  {!contactConfig.verifiedStatus.isPhoneVerified && (
-                    <span className="text-[11px] text-[#687381] italic block mt-0.5">
-                      (Phone number pending contractor verification)
-                    </span>
+                <div className="space-y-1.5 pt-1">
+                  <div>
+                    <span className="text-[11px] uppercase tracking-wider text-[#687381] font-semibold block">Primary Number</span>
+                    <a
+                      href={telUrl}
+                      className="text-base font-bold text-[#172B40] hover:text-[#B58A58] transition-colors inline-block"
+                    >
+                      {contactConfig.phoneDisplay}
+                    </a>
+                  </div>
+                  {contactConfig.secondaryPhoneDisplay && secondaryTelUrl && (
+                    <div className="pt-1 border-t border-[#E5E0D7]">
+                      <span className="text-[11px] uppercase tracking-wider text-[#687381] font-semibold block">Secondary Number</span>
+                      <a
+                        href={secondaryTelUrl}
+                        className="text-sm font-semibold text-[#172B40] hover:text-[#B58A58] transition-colors inline-block"
+                      >
+                        {contactConfig.secondaryPhoneDisplay}
+                      </a>
+                    </div>
                   )}
                 </div>
               </div>
 
-              {/* Operations & Service Area Card */}
+              {/* Email Card */}
+              <div className="p-6 rounded-2xl bg-white border border-[#E5E0D7] shadow-xs space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#172B40]/10 text-[#172B40]">
+                    <Mail className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-[#172B40]">
+                      Email Enquiries
+                    </h3>
+                    <p className="text-xs text-[#687381]">
+                      Send drawings, plans & quotation requests
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <a
+                    href={`mailto:${contactConfig.email}`}
+                    className="text-sm font-semibold text-[#172B40] hover:text-[#B58A58] transition-colors break-all"
+                  >
+                    {contactConfig.email}
+                  </a>
+                </div>
+              </div>
+
+              {/* Office & Workshop Address Card */}
               <div className="p-6 rounded-2xl bg-white border border-[#E5E0D7] shadow-xs space-y-4 text-xs text-[#172B40]">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-[#B58A58] shrink-0 mt-0.5" />
+                  <div className="space-y-1">
+                    <span className="font-bold block text-sm">
+                      Workshop & Office Address
+                    </span>
+                    <span className="text-[#687381] leading-relaxed block">
+                      {contactConfig.addressSummary}
+                    </span>
+                    <a
+                      href={mapsSearchUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#B58A58] hover:underline pt-1"
+                    >
+                      <span>Open in Google Maps</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 pt-3 border-t border-[#E5E0D7]">
+                  <MapPin className="w-4 h-4 text-[#21865B] shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold block text-sm">
                       Operating Coverage

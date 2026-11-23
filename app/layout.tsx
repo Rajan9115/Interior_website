@@ -23,12 +23,12 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.shortName} | Interior Decorator & Home Renovation Services`,
+    default: `${siteConfig.shortName} | Interior Design & Contracting Services in Hyderabad`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   openGraph: {
-    title: `${siteConfig.shortName} | Interior Decorator & Home Renovation Services`,
+    title: `${siteConfig.shortName} | Interior Design & Contracting Services in Hyderabad`,
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.shortName} | Electrical, Carpentry, Painting & Ceiling Services`,
+    title: `${siteConfig.shortName} | Modular Kitchen, Wardrobes, Electrical & Ceiling`,
     description: siteConfig.description,
   },
   icons: {
@@ -58,13 +58,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Verified LocalBusiness structured data (No fabricated ratings or false addresses)
+  // Verified LocalBusiness structured data from official visiting card
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
+    telephone: contactConfig.phoneRaw,
+    email: contactConfig.email,
+    founder: {
+      "@type": "Person",
+      name: contactConfig.proprietorName || "Ritesh Kumar Soni",
+      jobTitle: "Master Contractor & Proprietor",
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "H. No. 14-1-89/25/A, Friends Colony, Allapur, Borabanda",
+      addressLocality: "Hyderabad",
+      addressRegion: "Telangana",
+      postalCode: "500018",
+      addressCountry: "IN",
+    },
     areaServed: contactConfig.serviceAreaSummary,
     openingHours: "Mo-Sa 09:00-19:30",
     hasOfferCatalog: {
@@ -75,21 +90,14 @@ export default function RootLayout({
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Electrical Installation & Concealed Wiring",
+            name: "Modular Kitchen & Custom Wardrobes",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Carpentry & Custom Modular Woodwork",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Interior & Exterior Painting Finishes",
+            name: "Electrical Installation & Electronic Works",
           },
         },
         {
@@ -97,6 +105,13 @@ export default function RootLayout({
           itemOffered: {
             "@type": "Service",
             name: "False Ceiling & POP Solutions",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Interior & Exterior Painting & Polish Finishes",
           },
         },
       ],
