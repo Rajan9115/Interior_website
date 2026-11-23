@@ -62,10 +62,10 @@ export function MediaGallery({ images, title }: MediaGalleryProps) {
         />
 
         {/* Authenticity Pill */}
-        <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm text-[#172B40] text-xs font-semibold shadow-xs flex items-center gap-1.5">
+        {/* <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm text-[#172B40] text-xs font-semibold shadow-xs flex items-center gap-1.5">
           <ShieldCheck className="w-4 h-4 text-[#21865B]" />
           <span>Authentic On-Site Photo</span>
-        </div>
+        </div> */}
 
         {/* Lightbox trigger button */}
         <button
