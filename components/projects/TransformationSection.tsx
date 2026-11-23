@@ -23,7 +23,7 @@ export function TransformationSection({
   const activePair = pairs[selectedIndex] || pairs[0];
 
   return (
-    <section className="py-16 sm:py-20 bg-[#F7F5F0] border-b border-[#E5E0D7]">
+    <section className="py-4 sm:py-8 bg-[#F7F5F0] border-b border-[#E5E0D7]">
       <Container size="wide">
         <div className="max-w-5xl mx-auto space-y-8">
           {/* Section Header */}

@@ -51,13 +51,13 @@ export function MediaGallery({ images, title }: MediaGalleryProps) {
   return (
     <div className="space-y-4">
       {/* Main Image Stage */}
-      <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-2xl overflow-hidden bg-[#E9E3D9] border border-[#E5E0D7] shadow-sm group">
+      <div className="relative aspect-[16/10] sm:aspect-[16/10] lg:aspect-[16/10] min-h-[340px] sm:min-h-[440px] lg:min-h-[520px] w-full rounded-2xl overflow-hidden bg-[#E9E3D9] border border-[#E5E0D7] shadow-sm group">
         <Image
           src={images[selectedIndex]}
           alt={`${title} - Photo ${selectedIndex + 1}`}
           fill
           priority
-          sizes="(max-width: 1024px) 100vw, 65vw"
+          sizes="(max-width: 1024px) 100vw, 75vw"
           className="object-cover transition-transform duration-500 group-hover:scale-102 motion-reduce:transform-none"
         />
 
