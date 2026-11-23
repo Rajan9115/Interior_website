@@ -10,9 +10,9 @@ import { contactConfig } from "@/data/siteConfig";
 import { MessageSquare, ArrowRight, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Completed Projects & Portfolio Gallery | Shan Contracting",
+  title: "Completed Projects & Portfolio Gallery | MAMA INTERIORS Hyderabad",
   description:
-    "Browse authentic on-site photos and videos from real contracting projects in India: concealed wiring, modular woodwork, luxury painting, and false ceilings.",
+    "Browse authentic on-site photos and videos from real contracting projects in Hyderabad: modular kitchens, wardrobes, electronic wiring, painting, and false ceilings.",
 };
 
 export default async function ProjectsPage() {

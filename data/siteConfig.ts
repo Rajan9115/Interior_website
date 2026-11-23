@@ -1,34 +1,38 @@
 import { NavItem, SiteContactInfo } from "@/types/navigation";
 
 export const siteConfig = {
-  name: "MAMA INTERIOR",
-  shortName: "MAMA",
-  tagline: "Electrical • Carpentry • Painting • Ceiling",
+  name: "MAMA INTERIORS",
+  shortName: "MAMA INTERIORS",
+  tagline: "Modular Kitchen • Wardrobes • Electronic • Ceiling • Paint & Polish",
   description:
-    "Premium contracting and interior finishing services in India. Specializing in high-grade Electrical, Carpentry, Painting, and Ceiling solutions.",
+    "Expert interior contracting and home finishing in Hyderabad by Ritesh Kumar Soni. Specialized in Modular Kitchens, Wardrobes, Electrical Works, False Ceilings, and Painting & Polish.",
   url: "https://shancontractor.com",
 };
 
 /**
  * Single source of truth for business and contact facts.
- * As per AGENTS.md, unverified details are flagged and presented as placeholders.
+ * Verified directly from the official visiting card of MAMA INTERIORS.
  */
 export const contactConfig: SiteContactInfo = {
-  businessName: "MAMA INTERIOR",
-  tradingName: "MAMA INTERIOR",
-  tagline: "Electrical, Carpentry, Painting & False Ceiling Specialists",
+  businessName: "MAMA INTERIORS",
+  tradingName: "MAMA INTERIORS",
+  proprietorName: "Ritesh Kumar Soni",
+  tagline: "Modular Kitchen • Wardrobes • Electronic • Ceiling • Paint & Polish",
   phoneDisplay: "+91 80818 70179",
   phoneRaw: "+918081870179",
+  secondaryPhoneDisplay: "+91 72378 64781",
+  secondaryPhoneRaw: "+917237864781",
   whatsappDisplay: "+91 80818 70179",
   whatsappRaw: "918081870179",
-  email: "mamainteriorhyd@gmail.com", // Placeholder
-  addressSummary: "Workshop & Operations, India",
-  serviceAreaSummary: "Hyderabad, Telangana, India",
+  email: "riteshkumarsoni1999@gmail.com",
+  addressSummary: "H. No. 14-1-89/25/A, Friends Colony, Allapur, Borabanda, Hyderabad",
+  fullAddress: "H. No. 14-1-89/25/A, Friends Colony, Allapur, Borabanda, Hyderabad, Telangana",
+  serviceAreaSummary: "Hyderabad, Telangana & Surrounding Regions",
   workingHours: "Mon - Sat: 9:00 AM – 7:30 PM",
   verifiedStatus: {
     isPhoneVerified: true,
     isWhatsAppVerified: true,
-    isAddressVerified: false,
+    isAddressVerified: true,
   },
 };
 

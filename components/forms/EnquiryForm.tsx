@@ -300,7 +300,7 @@ export function EnquiryForm() {
             type="text"
             value={formData.location}
             onChange={handleInputChange}
-            placeholder="e.g. Powai, Mumbai / Apartment or Commercial office"
+            placeholder="e.g. Borabanda, Allapur, Banjara Hills, Gachibowli, Hyderabad"
             className="w-full px-4 py-2.5 rounded-lg border border-[#E5E0D7] text-sm text-[#172B40] bg-[#F7F5F0]/50 placeholder:text-[#687381]/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#B58A58] transition-colors"
           />
         </div>

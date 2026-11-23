@@ -36,8 +36,8 @@ export function buildWhatsAppUrl(options?: {
 /**
  * Builds a tel: link for click-to-call if phone is available.
  */
-export function buildTelUrl(): string {
-  const phone = contactConfig.phoneRaw.replace(/\s+/g, "");
+export function buildTelUrl(customPhone?: string): string {
+  const phone = (customPhone || contactConfig.phoneRaw).replace(/\s+/g, "");
   return phone ? `tel:${phone}` : "#";
 }
 

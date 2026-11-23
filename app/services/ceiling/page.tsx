@@ -6,9 +6,9 @@ import { servicesData } from "@/data/services";
 import { projectsData } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "False Ceiling & POP Solutions | Gypsum & Cove Lighting | Shan Contracting",
+  title: "False Ceiling & POP Solutions | Gypsum & Cove Lighting | MAMA INTERIORS Hyderabad",
   description:
-    "Contemporary false ceiling designs, seamless gypsum board installations, Plaster of Paris (POP) cornices, and indirect LED cove lighting layouts in India.",
+    "Contemporary false ceiling designs, seamless gypsum board installations, Plaster of Paris (POP) cornices, and indirect LED cove lighting layouts in Hyderabad.",
 };
 
 export default function CeilingServicePage() {

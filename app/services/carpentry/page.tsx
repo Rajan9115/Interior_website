@@ -6,9 +6,9 @@ import { servicesData } from "@/data/services";
 import { projectsData } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Carpentry & Custom Modular Woodwork Services | Shan Contracting",
+  title: "Modular Kitchen & Wardrobe Carpentry | MAMA INTERIORS Hyderabad",
   description:
-    "Expert modular kitchen cabinetry, floor-to-ceiling wardrobes, TV entertainment units, and custom wood joinery in India.",
+    "Expert modular kitchen cabinetry, floor-to-ceiling wardrobes, TV entertainment units, and custom wood joinery in Hyderabad by Ritesh Kumar Soni.",
 };
 
 export default function CarpentryServicePage() {

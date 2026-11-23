@@ -7,7 +7,7 @@ const resendApiKey = process.env.RESEND_API_KEY;
 const recipientEmail =
   process.env.CONTACT_NOTIFICATION_EMAIL ||
   process.env.CONTACT_EMAIL_RECIPIENT ||
-  "mamainteriorhyd@gmail.com";
+  "riteshkumarsoni1999@gmail.com";
 
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
