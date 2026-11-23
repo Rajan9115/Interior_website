@@ -17,6 +17,7 @@ import {
   ArrowRight,
   Phone,
   MapPin,
+  Camera,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -112,27 +113,26 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left: Authentic On-Site Photo */}
             <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-[#E9E3D9] border border-[#E5E0D7] shadow-lg">
+              <div className="relative aspect-[4/5] min-h-[500px] sm:min-h-[540px] rounded-2xl overflow-hidden bg-[#E9E3D9] border border-[#E5E0D7] shadow-lg">
                 <Image
-                  src="/images/about.png"
+                  src="/images/about1.png"
                   alt="On-site contractor work and craftsmanship"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover"
+                  className="object-cover object-top"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#172B40]/70 via-transparent to-transparent opacity-60" />
 
-                <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm text-[#172B40] text-xs font-semibold shadow-xs flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-[#21865B]" />
-                  <span>Verified On-Site Work</span>
-                </div>
 
-                <div className="absolute bottom-4 inset-x-4 text-white text-xs">
-                  <span className="font-bold text-sm block">
-                    {siteConfig.shortName} Contracting Services
+                {/* Smooth Dark Gradient Overlay across bottom 30% */}
+                <div className="absolute inset-x-0 bottom-0 h-[35%] bg-gradient-to-t from-black/80 via-black/35 to-transparent pointer-events-none" />
+
+                {/* Overlay Text */}
+                <div className="absolute bottom-4 inset-x-4 text-white text-xs z-10">
+                  <span className="font-bold text-sm block tracking-wide text-white drop-shadow-sm">
+                    MAMA INTERIOR
                   </span>
-                  <span className="text-[#E9E3D9]/80 text-[11px]">
+                  <span className="text-white/90 text-[11px] leading-relaxed block mt-0.5 drop-shadow-sm">
                     Dedicated master craftsmanship across residential & commercial spaces
                   </span>
                 </div>
@@ -158,20 +158,26 @@ export default function AboutPage() {
                 We eliminate that friction by managing electrical installations, custom woodwork, painting, and false ceilings as one integrated, disciplined project. Every stage is planned in advance, executed by skilled craftsmen, and personally supervised on site.
               </p>
 
-              <div className="pt-3 border-t border-[#E5E0D7] grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#172B40]">
-                <div className="flex items-start gap-2.5 p-3 rounded-lg bg-[#F7F5F0] border border-[#E5E0D7]">
-                  <CheckCircle2 className="w-4 h-4 text-[#21865B] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold block">No Subcontractor Blame</span>
-                    <span className="text-[#687381]">One single contractor accountable for every milestone.</span>
+              <div className="pt-4 border-t border-[#E5E0D7] grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#172B40]">
+                {/* Elevated Feature Card 1 */}
+                <div className="flex items-start gap-3.5 p-5 rounded-xl bg-white border border-stone-200/80 shadow-sm transition-shadow hover:shadow-md">
+                  <div className="w-9 h-9 rounded-full bg-[#E8EFEA] text-[#15803D] flex items-center justify-center shrink-0 mt-0.5">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <span className="font-bold text-sm text-[#172B40] block">No Subcontractor Blame</span>
+                    <span className="text-[#687381] text-xs leading-relaxed block">One single contractor accountable for every milestone.</span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-2.5 p-3 rounded-lg bg-[#F7F5F0] border border-[#E5E0D7]">
-                  <CheckCircle2 className="w-4 h-4 text-[#21865B] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold block">100% Genuine Evidence</span>
-                    <span className="text-[#687381]">Only real photos of completed projects are published.</span>
+                {/* Elevated Feature Card 2 */}
+                <div className="flex items-start gap-3.5 p-5 rounded-xl bg-white border border-stone-200/80 shadow-sm transition-shadow hover:shadow-md">
+                  <div className="w-9 h-9 rounded-full bg-[#E8EFEA] text-[#15803D] flex items-center justify-center shrink-0 mt-0.5">
+                    <Camera className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <span className="font-bold text-sm text-[#172B40] block">100% Genuine Evidence</span>
+                    <span className="text-[#687381] text-xs leading-relaxed block">Only real photos of completed projects are published.</span>
                   </div>
                 </div>
               </div>

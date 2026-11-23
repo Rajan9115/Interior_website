@@ -76,7 +76,7 @@ export function WhyChooseUs() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#F7F5F0] py-12 sm:py-16 lg:py-20 border-b border-[#E9E3D9] overflow-hidden"
+      className="bg-[#F7F5F0] py-8 sm:py-4 lg:py-8 border-b border-[#E9E3D9] overflow-hidden"
     >
       <Container size="wide">
         {/* 1. Section Heading */}

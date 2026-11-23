@@ -73,7 +73,7 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
   return (
     <section
       ref={sectionRef}
-      className="py-12 sm:py-16 lg:py-20 bg-[#F7F5F0] border-b border-[#E9E3D9] overflow-hidden"
+      className="py-8 sm:py-4 lg:py-8 bg-[#F7F5F0] border-b border-[#E9E3D9] overflow-hidden"
     >
       <Container size="wide">
         {/* 1. Section Header with Cinematic Staggered Entrance */}

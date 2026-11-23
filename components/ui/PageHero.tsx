@@ -27,7 +27,7 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <section
-      className={`relative bg-[#F7F5F0] border-b border-[#E5E0D7] pt-28 pb-8 sm:pt-32 sm:pb-12 lg:pt-36 lg:pb-16 ${className}`}
+      className={`relative bg-[#F7F5F0] border-b border-[#E5E0D7] pt-28 pb-8 sm:pt-32 sm:pb-4 lg:pt-30 lg:pb-8 ${className}`}
     >
       <Container size="wide">
         {/* Breadcrumbs */}
@@ -66,7 +66,7 @@ export function PageHero({
         )}
 
         {/* Content */}
-        <div className="max-w-3xl">
+        <div className="max-w-5xl">
           {kicker && (
             <span className="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#B58A58] mb-2">
               {kicker}
