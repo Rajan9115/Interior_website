@@ -124,7 +124,7 @@ export function ProcessSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-12 sm:py-16 lg:py-20 bg-white border-b border-[#E9E3D9] overflow-hidden"
+      className="py-8 sm:py-4 lg:py-8 bg-white border-b border-[#E9E3D9] overflow-hidden"
     >
       <Container size="wide">
         {/* 1. Heading Refinement */}

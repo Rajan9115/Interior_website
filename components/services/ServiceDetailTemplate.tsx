@@ -61,7 +61,7 @@ export function ServiceDetailTemplate({
       />
 
       {/* 2. Detailed Narrative & Authentic Media Showcase */}
-      <section className="py-16 sm:py-20 bg-white border-b border-[#E5E0D7]">
+      <section className="py-4 sm:py-8 bg-white border-b border-[#E5E0D7]">
         <Container size="wide">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left: Authentic On-Site Photo */}
@@ -128,7 +128,7 @@ export function ServiceDetailTemplate({
       </section>
 
       {/* 3. Confirmed Subcategories / Scope */}
-      <section className="py-16 sm:py-20 bg-[#F7F5F0] border-b border-[#E5E0D7]">
+      <section className="py-4 sm:py-8 bg-[#F7F5F0] border-b border-[#E5E0D7]">
         <Container size="wide">
           <SectionHeading
             kicker="Confirmed Disciplines"
@@ -169,7 +169,7 @@ export function ServiceDetailTemplate({
 
       {/* 4. Trade-Specific Execution Methodology */}
       {service.processSummary && service.processSummary.length > 0 && (
-        <section className="py-16 sm:py-20 bg-white border-b border-[#E5E0D7]">
+        <section className="py-4 sm:py-8 bg-white border-b border-[#E5E0D7]">
           <Container size="wide">
             <SectionHeading
               kicker="On-Site Sequence"
@@ -200,7 +200,7 @@ export function ServiceDetailTemplate({
 
       {/* 5. Related Projects From Authentic Portfolio */}
       {relatedProjects && relatedProjects.length > 0 && (
-        <section className="py-16 sm:py-20 bg-[#F7F5F0] border-b border-[#E5E0D7]">
+        <section className="py-4 sm:py-8 bg-[#F7F5F0] border-b border-[#E5E0D7]">
           <Container size="wide">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
               <SectionHeading

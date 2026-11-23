@@ -27,7 +27,7 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <section
-      className={`relative bg-[#F7F5F0] border-b border-[#E5E0D7] pt-28 pb-8 sm:pt-32 sm:pb-8 lg:pt-30 lg:pb-4 ${className}`}
+      className={`relative bg-[#F7F5F0] border-b border-[#E5E0D7] pt-28 pb-8 sm:pt-32 sm:pb-4 lg:pt-30 lg:pb-8 ${className}`}
     >
       <Container size="wide">
         {/* Breadcrumbs */}
