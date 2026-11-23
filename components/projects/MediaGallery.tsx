@@ -51,21 +51,21 @@ export function MediaGallery({ images, title }: MediaGalleryProps) {
   return (
     <div className="space-y-4">
       {/* Main Image Stage */}
-      <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-2xl overflow-hidden bg-[#E9E3D9] border border-[#E5E0D7] shadow-sm group">
+      <div className="relative aspect-[16/10] sm:aspect-[16/10] lg:aspect-[16/10] min-h-[340px] sm:min-h-[440px] lg:min-h-[520px] w-full rounded-2xl overflow-hidden bg-[#E9E3D9] border border-[#E5E0D7] shadow-sm group">
         <Image
           src={images[selectedIndex]}
           alt={`${title} - Photo ${selectedIndex + 1}`}
           fill
           priority
-          sizes="(max-width: 1024px) 100vw, 65vw"
+          sizes="(max-width: 1024px) 100vw, 75vw"
           className="object-cover transition-transform duration-500 group-hover:scale-102 motion-reduce:transform-none"
         />
 
         {/* Authenticity Pill */}
-        <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm text-[#172B40] text-xs font-semibold shadow-xs flex items-center gap-1.5">
+        {/* <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm text-[#172B40] text-xs font-semibold shadow-xs flex items-center gap-1.5">
           <ShieldCheck className="w-4 h-4 text-[#21865B]" />
           <span>Authentic On-Site Photo</span>
-        </div>
+        </div> */}
 
         {/* Lightbox trigger button */}
         <button

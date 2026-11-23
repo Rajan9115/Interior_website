@@ -143,7 +143,7 @@ export function HeroSection() {
             </div>
 
             {/* Trust Badges with Staggered Fade & Rise */}
-            <div className="pt-8 sm:pt-10 flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs text-neutral-300">
+            {/* <div className="pt-8 sm:pt-10 flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs text-neutral-300">
               {trustBadges.map((badgeText, idx) => (
                 <div
                   key={idx}
@@ -157,7 +157,7 @@ export function HeroSection() {
                   <span className="font-medium">{badgeText}</span>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </Container>
       </div>

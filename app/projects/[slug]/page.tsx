@@ -119,9 +119,9 @@ export default async function ProjectDetailPage({ params }: Props) {
       {/* 2. Main Content & Media Section */}
       <section className="py-16 sm:py-20 bg-white border-b border-[#E5E0D7]">
         <Container size="wide">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
-            {/* Left 7 Columns: Media Gallery & Video */}
-            <div className="lg:col-span-7 space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-start">
+            {/* Left 8 Columns: Media Gallery & Video (Takes more than half screen on laptop) */}
+            <div className="lg:col-span-8 space-y-8">
               <MediaGallery images={project.images} title={project.title} />
 
               {/* Video Player if Video Available */}
@@ -139,8 +139,8 @@ export default async function ProjectDetailPage({ params }: Props) {
               )}
             </div>
 
-            {/* Right 5 Columns: Project Specifications & Scope */}
-            <div className="lg:col-span-5 space-y-8">
+            {/* Right 4 Columns: Project Specifications & Scope */}
+            <div className="lg:col-span-4 space-y-8">
               {/* Privacy-Safe Metadata Card */}
               <div className="p-6 rounded-xl bg-[#F7F5F0] border border-[#E5E0D7] space-y-3.5 text-xs text-[#172B40]">
                 <div className="flex items-center justify-between pb-3 border-b border-[#E5E0D7]">
@@ -225,7 +225,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
       {/* 3. Related Projects in Same Category */}
       {relatedProjects.length > 0 && (
-        <section className="py-16 sm:py-20 bg-[#F7F5F0] border-b border-[#E5E0D7]">
+        <section className="py-4 sm:py-8 bg-[#F7F5F0] border-b border-[#E5E0D7]">
           <Container size="wide">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
               <SectionHeading
