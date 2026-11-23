@@ -21,9 +21,9 @@ export const contactConfig: SiteContactInfo = {
   phoneRaw: "+918081870179",
   whatsappDisplay: "+91 80818 70179",
   whatsappRaw: "918081870179",
-  email: "enquiries@shancontractor.com", // Placeholder
+  email: "mamainteriorhyd@gmail.com", // Placeholder
   addressSummary: "Workshop & Operations, India",
-  serviceAreaSummary: "Residential & Commercial Projects across City Metro",
+  serviceAreaSummary: "Hyderabad, Telangana, India",
   workingHours: "Mon - Sat: 9:00 AM – 7:30 PM",
   verifiedStatus: {
     isPhoneVerified: true,
