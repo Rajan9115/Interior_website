@@ -63,30 +63,51 @@ export function ServiceDetailTemplate({
       {/* 2. Detailed Narrative & Authentic Media Showcase */}
       <section className="py-4 sm:py-8 bg-white border-b border-[#E5E0D7]">
         <Container size="wide">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left: Authentic On-Site Photo */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/5] rounded-2xl overflow-hidden bg-[#E9E3D9] border border-[#E5E0D7] shadow-md group">
-                <Image
-                  src={service.coverImage}
-                  alt={`Authentic on-site ${service.shortTitle} execution`}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transform-none"
-                  priority
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left: Authentic On-Site Photo with Architectural Layered Frame */}
+            <div className="lg:col-span-5 relative lg:sticky lg:top-28 self-start pt-2">
+              <div className="relative group">
+                {/* Layered Architectural Backdrop Frame (3D Physical Print Effect) */}
+                <div
+                  className="absolute -inset-2.5 sm:-inset-3.5 rounded-3xl bg-[#F7F5F0] border border-[#E5E0D7] -rotate-1 transition-transform duration-500 group-hover:rotate-0 pointer-events-none"
+                  aria-hidden="true"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#172B40]/70 via-transparent to-transparent opacity-60" />
 
-                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/95 backdrop-blur-sm text-[#172B40] text-xs font-semibold shadow-xs flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-[#21865B]" />
-                  <span>Real Job Site Photography</span>
-                </div>
+                {/* Main Foreground Image Container */}
+                <div className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] rounded-2xl overflow-hidden bg-[#E9E3D9] border border-[#E5E0D7] shadow-lg">
+                  <Image
+                    src={service.coverImage}
+                    alt={`Authentic on-site ${service.shortTitle} execution`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transform-none"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent pointer-events-none" />
 
-                <div className="absolute bottom-4 left-4 right-4 text-white text-xs">
-                  <span className="font-semibold block">{service.title}</span>
-                  <span className="text-[#E9E3D9]/80 text-[11px]">
-                    Direct craftsmanship & adherence to technical specifications
-                  </span>
+                  {/* Top Floating Badge */}
+                  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2 pointer-events-none z-10">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-[#172B40] text-xs font-semibold shadow-md border border-white/60">
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#21865B] shrink-0" />
+                      <span>Real On-Site Job Photography • Hyderabad</span>
+                    </span>
+                  </div>
+
+                  {/* Bottom Floating Metric Card (Frosted Glass) */}
+                  <div className="absolute bottom-3.5 inset-x-3.5 p-3.5 sm:p-4 rounded-xl bg-[#172B40]/90 backdrop-blur-md border border-white/15 text-white shadow-xl z-10">
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#B58A58]">
+                        100% Supervised
+                      </span>
+                      <span className="w-2 h-2 rounded-full bg-[#21865B] inline-block animate-pulse" />
+                    </div>
+                    <p className="text-xs sm:text-[13px] font-semibold text-white leading-snug">
+                      Direct execution by Master Contractor {contactConfig.proprietorName || "Ritesh Kumar Soni"}
+                    </p>
+                    <span className="text-[11px] text-[#E9E3D9]/75 block mt-0.5">
+                      {service.title} • Turnkey Site Accountability
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
