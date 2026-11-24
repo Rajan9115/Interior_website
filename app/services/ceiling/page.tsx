@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ServiceDetailTemplate } from "@/components/services/ServiceDetailTemplate";
 import { servicesData } from "@/data/services";
-import { projectsData } from "@/data/projects";
+import { fetchPublishedProjects } from "@/lib/api/public-client";
 
 export const metadata: Metadata = {
   title: "False Ceiling & POP Solutions | Gypsum & Cove Lighting | MAMA INTERIORS Hyderabad",
@@ -11,14 +11,14 @@ export const metadata: Metadata = {
     "Contemporary false ceiling designs, seamless gypsum board installations, Plaster of Paris (POP) cornices, and indirect LED cove lighting layouts in Hyderabad.",
 };
 
-export default function CeilingServicePage() {
+export default async function CeilingServicePage() {
   const service = servicesData.find((s) => s.id === "ceiling");
 
   if (!service) {
     notFound();
   }
 
-  const relatedProjects = projectsData.filter((p) => p.category === "ceiling");
+  const relatedProjects = await fetchPublishedProjects({ category: "ceiling" });
 
   return (
     <ServiceDetailTemplate

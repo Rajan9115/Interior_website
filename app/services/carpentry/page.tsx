@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ServiceDetailTemplate } from "@/components/services/ServiceDetailTemplate";
 import { servicesData } from "@/data/services";
-import { projectsData } from "@/data/projects";
+import { fetchPublishedProjects } from "@/lib/api/public-client";
 
 export const metadata: Metadata = {
   title: "Modular Kitchen & Wardrobe Carpentry | MAMA INTERIORS Hyderabad",
@@ -11,14 +11,14 @@ export const metadata: Metadata = {
     "Expert modular kitchen cabinetry, floor-to-ceiling wardrobes, TV entertainment units, and custom wood joinery in Hyderabad by Ritesh Kumar Soni.",
 };
 
-export default function CarpentryServicePage() {
+export default async function CarpentryServicePage() {
   const service = servicesData.find((s) => s.id === "carpentry");
 
   if (!service) {
     notFound();
   }
 
-  const relatedProjects = projectsData.filter((p) => p.category === "carpentry");
+  const relatedProjects = await fetchPublishedProjects({ category: "carpentry" });
 
   return (
     <ServiceDetailTemplate

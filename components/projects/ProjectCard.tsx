@@ -55,9 +55,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {/* Content */}
         <div className="flex flex-1 flex-col p-6">
           <h3 className="text-lg font-bold text-[#172B40] tracking-tight group-hover:text-[#B58A58] transition-colors leading-snug">
-            <Link href={`/projects/${project.slug}`} className="focus-visible:outline-none focus-visible:underline">
+            <span className="focus-visible:outline-none focus-visible:underline">
               {project.title}
-            </Link>
+            </span>
           </h3>
 
           <p className="mt-2.5 text-sm text-[#687381] leading-relaxed line-clamp-2">

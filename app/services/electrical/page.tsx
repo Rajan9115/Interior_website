@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ServiceDetailTemplate } from "@/components/services/ServiceDetailTemplate";
 import { servicesData } from "@/data/services";
-import { projectsData } from "@/data/projects";
+import { fetchPublishedProjects } from "@/lib/api/public-client";
 
 export const metadata: Metadata = {
   title: "Electrical Installation & Electronic Works | MAMA INTERIORS Hyderabad",
@@ -11,14 +11,14 @@ export const metadata: Metadata = {
     "Expert concealed electrical installations, fire-retardant wiring, distribution boards, safety switches, and architectural lighting in Hyderabad by Ritesh Kumar Soni.",
 };
 
-export default function ElectricalServicePage() {
+export default async function ElectricalServicePage() {
   const service = servicesData.find((s) => s.id === "electrical");
 
   if (!service) {
     notFound();
   }
 
-  const relatedProjects = projectsData.filter((p) => p.category === "electrical");
+  const relatedProjects = await fetchPublishedProjects({ category: "electrical" });
 
   return (
     <ServiceDetailTemplate
