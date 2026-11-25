@@ -133,6 +133,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                   </h3>
                   <VideoCard
                     src={project.videos[0]}
+                    poster={project.coverImage}
                     title={`${project.title} - Site Execution Footage`}
                   />
                 </div>
