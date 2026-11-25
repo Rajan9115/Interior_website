@@ -9,6 +9,25 @@ interface VideoCardProps {
   title?: string;
 }
 
+/**
+ * Derives an optimized JPG frame thumbnail from a Cloudinary video URL.
+ * Returns null for non-Cloudinary sources so callers can fall back to `poster`.
+ */
+function getCloudinaryVideoPoster(src: string): string | null {
+  if (!src.includes("res.cloudinary.com") || !src.includes("/video/upload/")) {
+    return null;
+  }
+
+  const withTransform = src.replace(
+    "/video/upload/",
+    "/video/upload/so_2,w_1200,f_auto,q_auto/"
+  );
+
+  return /\.[a-z0-9]+($|\?)/i.test(withTransform)
+    ? withTransform.replace(/\.[a-z0-9]+($|\?)/i, ".jpg$1")
+    : `${withTransform}.jpg`;
+}
+
 export function VideoCard({
   src,
   poster = "/images/electrical/house-wiring.png",
@@ -17,6 +36,7 @@ export function VideoCard({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const resolvedPoster = getCloudinaryVideoPoster(src) || poster;
 
   const togglePlay = () => {
     if (!videoRef.current) return;
@@ -40,7 +60,8 @@ export function VideoCard({
       <video
         ref={videoRef}
         src={src}
-        poster={poster}
+        poster={resolvedPoster}
+        preload="none"
         muted={isMuted}
         playsInline
         onEnded={() => setIsPlaying(false)}
